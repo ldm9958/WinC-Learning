@@ -20,3 +20,10 @@ class Son : public Base
     virtual void h1(){cout <<"Son::h"<<endl;}
 };
 
+class Son2 : public Base
+{
+    virtual void f() {cout <<"son::f"<<endl;}
+    virtual void g1(){cout <<"Son::g"<<endl;}
+    virtual void h1(){cout <<"Son::h"<<endl;}
+};
+

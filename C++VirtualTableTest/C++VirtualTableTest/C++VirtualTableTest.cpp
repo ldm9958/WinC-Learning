@@ -11,7 +11,6 @@ int _tmain(int argc, _TCHAR* argv[])
 
     cout << "base虚函数表地址：" << (int*)(&b) << endl;
     cout << "base虚函数表 — 第一个函数地址：" << (int*)*(int*)(&b) << endl;
- //   cout << "base虚函数表 — 第二个函数地址：" << (int*)*((int*)(&b)) << endl;
 
     pFun = (Fun)*((int*)*(int*)(&b));
     pFun();
@@ -43,6 +42,26 @@ int _tmain(int argc, _TCHAR* argv[])
     pFun();
 
     pFun = (Fun)*((int*)*((int*)(&c))+5);
+    pFun();
+
+    Son2 d;
+
+    cout << "Son虚函数表地址：" << (int*)(&d) << endl;
+    cout << "Son虚函数表 — 第一个函数地址：" << (int*)*(int*)(&d) << endl;
+
+    pFun = (Fun)*((int*)*((int*)(&d)));
+    pFun();
+
+    pFun = (Fun)*((int*)*((int*)(&d))+1);
+    pFun();
+
+    pFun = (Fun)*((int*)*((int*)(&d))+2);
+    pFun();
+
+    pFun = (Fun)*((int*)*((int*)(&d))+3);
+    pFun();
+
+    pFun = (Fun)*((int*)*((int*)(&d))+4);
     pFun();
 
 	return 0;
