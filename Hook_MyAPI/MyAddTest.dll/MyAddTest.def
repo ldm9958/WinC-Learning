@@ -1,0 +1,4 @@
+LIBRARY	"MyAddTest.dll"
+DESCRIPTION "spt lalala"
+EXPORTS
+ add  @1;
