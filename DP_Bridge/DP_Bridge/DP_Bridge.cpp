@@ -4,83 +4,9 @@
 #include "stdafx.h"
 #include <windows.h>
 #include <iostream>
+#include "DP_Bridge.h"
 
-using std::string;
-
-class OperatinSystem {
-public:
-    OperatinSystem (){};
-    virtual ~OperatinSystem (){};
-    virtual void doPlay() = 0;
-};
-
-class Linux : public OperatinSystem {
-public:
-    Linux  (){};
-    virtual ~Linux(){};
-    virtual void doPlay(){
-        std::cout << " Linux" << std::endl;
-    }
-};
-
-class Unix : public OperatinSystem {
-public:
-    Unix(){};
-    virtual ~Unix(){};
-    virtual void doPlay(){
-        std::cout << " Unix" << std::endl;
-    }
-};
-
-class Windows : public OperatinSystem {
-public:
-    Windows  (){};
-    virtual ~Windows(){};
-    virtual void doPlay(){
-        std::cout << " Windows" << std::endl;
-    }
-};
-
-class Player {
-protected:
-    OperatinSystem *OS;
-public:
-    Player (): OS(NULL){};
-    virtual void setOS(OperatinSystem *os){OS = os;}
-    virtual ~Player (){};
-
-    virtual void play() = 0;
-};
-
-class MP3Player : public Player{
-public:
-    MP3Player(){};
-    virtual ~MP3Player(){};
-    virtual void play(){
-        std::cout << "Play MP3 under ";
-        OS->doPlay();
-    }
-};
-
-class WAVPlayer : public Player{
-public:
-    WAVPlayer(){};
-    virtual ~WAVPlayer(){};
-    virtual void play(){
-        std::cout << "Play WAV under ";
-        OS->doPlay();
-    }
-};
-
-class WMAPlayer : public Player{
-public:
-    WMAPlayer(){};
-    virtual ~WMAPlayer(){};
-    virtual void play(){
-        std::cout << "Play WMA under ";
-        OS->doPlay();
-    }
-};
+using namespace std;
 
 int main(void)
 {
@@ -111,3 +37,115 @@ int main(void)
     system("pause");
 }
 
+Linux::Linux()
+{
+
+}
+
+Linux::~Linux()
+{
+
+}
+
+void Linux::doplay()
+{
+    cout << "Linux" <<endl;
+}
+
+Windows::Windows()
+{
+
+}
+
+Windows::~Windows()
+{
+
+}
+
+void Windows::doplay()
+{
+    cout << "Windows" <<endl;
+}
+
+Unix::Unix()
+{
+
+}
+
+void Unix::doplay()
+{
+    cout << "Unix" <<endl;
+}
+
+Player::Player()
+{
+
+}
+
+Player::~Player()
+{
+
+}
+
+void Player::setOS(OperateSystem * os)
+{
+    Os = os;
+}
+
+MP3Player::MP3Player()
+{
+
+}
+
+MP3Player::~MP3Player()
+{
+
+}
+
+void MP3Player::play()
+{
+    cout << "playing mp3 on ";
+    Os->doplay();
+}
+
+WMAPlayer::WMAPlayer()
+{
+
+}
+
+WMAPlayer::~WMAPlayer()
+{
+
+}
+
+void WMAPlayer::play()
+{
+    cout << "playing WMA on ";
+    Os->doplay();
+}
+
+WAVPlayer::WAVPlayer()
+{
+
+}
+
+WAVPlayer::~WAVPlayer()
+{
+
+}
+
+void WAVPlayer::play()
+{
+    cout << "playing WAV on ";
+    Os->doplay();
+}
+
+OperateSystem::OperateSystem()
+{
+
+}
+
+OperateSystem::~OperateSystem()
+{
+
+}
