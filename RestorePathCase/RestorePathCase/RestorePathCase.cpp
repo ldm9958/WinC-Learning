@@ -90,7 +90,7 @@ std::wstring GetActualPathName( const wchar_t* path )
   
 int _tmain(int argc, _TCHAR* argv[])
 {
-	wstring strTemp = L"d:\\dad\\son\\did.txt";
+	wstring strTemp = L"E:\\git-repo\\MyWindowsC++Learning\\新建文件夹dasd21d不哈\\新建文本文档.txt";
 	wstring strReal = L"";
 	strReal = GetActualPathName(strTemp.c_str());
 	wprintf(L"strReal=%s",strReal.c_str());
